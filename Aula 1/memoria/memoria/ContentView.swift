@@ -11,7 +11,11 @@ struct ContentView: View {
     var body: some View {
         HStack{
             ForEach(0..<4) { index in
-                CartaoView(isFaceCima: true)
+                VStack {
+                    ForEach(0..<5) { index in
+                        CartaoView(isFaceUp: true)
+                    }
+                }
             }
         }
             .padding()
@@ -20,11 +24,11 @@ struct ContentView: View {
 
 
 struct CartaoView: View {
-    var isFaceCima: Bool
+    var isFaceUp: Bool
     
     var body: some View {
         ZStack{
-            if isFaceCima {
+            if isFaceUp {
                 RoundedRectangle(cornerRadius: 10.0)
                     .fill(Color.white)
                     .stroke(Color.orange, lineWidth: 3.0)
